@@ -65,6 +65,8 @@ group :test do
 
   # Code analysis tools
   gem 'rubocop', '~> 0.65.0', require: false
+
+  gem 'rails-controller-testing'
 end
 
 group :production do

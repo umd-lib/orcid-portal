@@ -4,3 +4,15 @@
 
 # URL of the CAS login endpoint
 CAS_SERVER_URL=https://login.umd.edu/cas
+
+# The CAS session attribute
+CAS_SESSION_ATTRIBUTE=cas
+
+# CAS attribute for the 9-digit UID
+CAS_UID_ATTRIBUTE=uid
+
+# CAS attribute for the user's first name
+CAS_FIRST_NAME_ATTRIBUTE=firstName
+
+# CAS attribute for the user's last name
+CAS_LAST_NAME_ATTRIBUTE=lastName
