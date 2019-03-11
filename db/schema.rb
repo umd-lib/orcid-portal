@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_11_155002) do
+ActiveRecord::Schema.define(version: 2019_03_11_173302) do
+
+  create_table "orcid_records", force: :cascade do |t|
+    t.string "uid"
+    t.string "orcid_id"
+    t.datetime "registered_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "sessions", force: :cascade do |t|
     t.string "session_id", null: false
