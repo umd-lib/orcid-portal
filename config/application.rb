@@ -1,6 +1,7 @@
 require_relative 'boot'
 
 require 'rails/all'
+require 'rack-cas/session_store/active_record'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -15,5 +16,16 @@ module OrcidPortal
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+    config.rack_cas.server_url = ENV['CAS_SERVER_URL']
+
+    # Ensure CAS_SERVER_URL is defined, as otherwise CAS authentication will
+    # no occur.
+    if (config.rack_cas.server_url.to_s.strip.empty?)
+      puts("ERROR: CAS_SERVER_URL environment variable is not configured.")
+      exit 1
+    end
+
+    config.rack_cas.session_store = RackCAS::ActiveRecordStore
   end
 end

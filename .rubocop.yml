@@ -44,6 +44,9 @@ Metrics/ModuleLength:
     - 'test/**/*'
     - 'app/controllers/concerns/personnel_request_controller.rb'
 
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
 # The following configuration exclude checks that seem
 # silly, or conflict with the way Rails naturally does
 # things.

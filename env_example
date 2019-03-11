@@ -1,0 +1,6 @@
+# Example .env file
+# Make a copy of this file named ".env" and fill out the properties
+# Note: The .env file should _not_ be checked in to Git!
+
+# URL of the CAS login endpoint
+CAS_SERVER_URL=https://login.umd.edu/cas
