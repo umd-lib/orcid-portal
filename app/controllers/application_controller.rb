@@ -10,4 +10,16 @@ class ApplicationController < ActionController::Base
       render status: :unauthorized, text: 'Redirecting to SSO...'
     end
   end
+
+  def cas_uid
+    session[ENV['CAS_SESSION_ATTRIBUTE']]['extra_attributes'][ENV['CAS_UID_ATTRIBUTE']]
+  end
+
+  def cas_first_name
+    session[ENV['CAS_SESSION_ATTRIBUTE']]['extra_attributes'][ENV['CAS_FIRST_NAME_ATTRIBUTE']]
+  end
+
+  def cas_last_name
+    session[ENV['CAS_SESSION_ATTRIBUTE']]['extra_attributes'][ENV['CAS_LAST_NAME_ATTRIBUTE']]
+  end
 end

@@ -23,4 +23,12 @@ class HomeControllerTest < ActionController::TestCase
     get :index
     assert_template 'previously_captured'
   end
+
+  test 'CAS response without UID attribute should show CAS error page.' do
+    builder = CasSessionBuilder.new(session)
+    builder.cas_user_name('foobar').first_name('Foo').last_name('Bar')
+
+    get :index
+    assert_template 'cas_attribute_error'
+  end
 end
