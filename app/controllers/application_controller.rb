@@ -42,4 +42,10 @@ class ApplicationController < ActionController::Base
     logger.error("#{@timestamp} - #{@error_code} - #{@error_code_type} - #{@error_message} - #{@error_description}")
     render status: @error_code, file: 'shared/error'
   end
+
+  # Single location for "ORCHID@UMD" link, as it is used in multiple places
+  def orcid_at_umd_link
+    'https://www.lib.umd.edu/orcid'
+  end
+  helper_method :orcid_at_umd_link
 end
