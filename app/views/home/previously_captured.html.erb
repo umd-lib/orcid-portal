@@ -1,10 +1,12 @@
 <h1>ORCID ID Permission Previously Captured</h1>
 
-<div>
+<h2>
   <%= @first_name %> <%= @last_name %>
-</div>
+</h2>
 
-<div>
-  You previously registered ORCID ID <%= @orcid_id %> on
-  <%= @registration_date %>
-</div>
+<p>
+  You previously registered ORCID ID <a href="<%= @orcid_id %>" target="_blank"><%= @orcid_id %></a>
+  on  <%= @registration_date %>.
+  <br/>
+	See <a href="#"> ORCID@UMD </a> for more information.</p>
+</p>

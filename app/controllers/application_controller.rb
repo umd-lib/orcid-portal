@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     if session[:cas] && !session[:cas].is_a?(HashWithIndifferentAccess)
       session[:cas] = session[:cas].with_indifferent_access
     elsif session[:cas].nil? || session[:cas][:user].nil?
-      render status: :unauthorized, text: 'Redirecting to SSO...'
+      head :unauthorized
     end
   end
 
