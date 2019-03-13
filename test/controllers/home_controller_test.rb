@@ -29,6 +29,6 @@ class HomeControllerTest < ActionController::TestCase
     builder.cas_user_name('foobar').first_name('Foo').last_name('Bar')
 
     get :index
-    assert_template 'cas_attribute_error'
+    assert_template 'shared/error'
   end
 end

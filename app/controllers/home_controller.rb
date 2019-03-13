@@ -8,7 +8,10 @@ class HomeController < ApplicationController
     # This may occur user is a member of a group we haven't asked DIT to
     # release attributes for.
     if @cas_uid.blank?
-      render 'cas_attribute_error'
+      render_error_page(
+        error_message: 'CAS Error',
+        error_description: 'An error occurred retrieving your attributes from CAS.'
+      )
       return
     end
 

@@ -47,18 +47,28 @@ class OrcidController < ApplicationController
       response_host = post_response.header.uri.host;
       @orcid_identifier = "#{response_scheme}://#{response_host}/#{response_hash['orcid']}"
 
-      create_record(cas_uid, @orcid_identifier)
+      # Make sure record doesn't already exist
+      existing_record = OrcidRecord.find_by(uid: cas_uid)
+      if existing_record
+        @error_message = 'Existing Record Found.'
+        @error_description =
+          'An existing record has been found for your CAS identifier.\n' \
+          "Existing ORCID id: #{existing_record.orcid_id}\\n" \
+          "ORCID id from request: #{@orcid_identifier}\\n"
 
-      @orcid_name = response_hash['name']
-      @orcid_record = OrcidRecord.find_by(uid: cas_uid)
-      render 'auth_code_callback'
+          render_error_page(error_message: @error_message, error_description: @error_description)
+      else
+        create_record(cas_uid, @orcid_identifier)
+        @orcid_name = response_hash['name']
+        @orcid_record = OrcidRecord.find_by(uid: cas_uid)
+        render 'auth_code_callback'
+      end
     else
       # Error response
-      @error_code = post_response.code
-      @error_code_type = post_response.code_type
-      @error_message = response_hash['error']
-      @error_description = response_hash['error_description']
-      render 'auth_code_callback_error'
+      render_error_page(error_code: post_response.code,
+                        error_code_type: post_response.code_type,
+                        error_message: response_hash['error'],
+                        error_description: response_hash['error_description'])
     end
   end
 

@@ -22,4 +22,24 @@ class ApplicationController < ActionController::Base
   def cas_last_name
     session[ENV['CAS_SESSION_ATTRIBUTE']]['extra_attributes'][ENV['CAS_LAST_NAME_ATTRIBUTE']]
   end
+
+  # Renders an error page with the provided information
+  # Each of the parameters in optional.
+  # In "error_description" parameter, lines will be split on "\n" and rendered
+  # on separate lines
+  #
+  # Method also logs an ERROR to the log
+  def render_error_page(error_code: nil, error_code_type: nil, error_message:, error_description:)
+    @error_code = error_code || '400'
+    @error_code_type = error_code_type || nil
+    @error_message = error_message || nil
+    @error_description = error_description || nil
+
+    # Convert error_description into array, splitting on newlines
+    @error_description = @error_description.split('\n') if @error_description
+
+    @timestamp = Time.now.utc.to_s
+    logger.error("#{@timestamp} - #{@error_code} - #{@error_code_type} - #{@error_message} - #{@error_description}")
+    render status: @error_code, file: 'shared/error'
+  end
 end
