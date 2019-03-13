@@ -66,6 +66,11 @@ that are provided to Rails. A sample "env_example" file has been provided to
 assist with this process. Simply copy the "env_example" file to ".env" and fill
 out the parameters as appropriate.
 
+## Application Monitoring
+
+The application can be monitored using the "/ping" URL path. This path does
+not require authentication.
+
 ## Development Setup
 
 ### ORCID setup

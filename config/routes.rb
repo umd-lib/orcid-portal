@@ -4,4 +4,6 @@ Rails.application.routes.draw do
 
   get '/orcid_auth_code_request' => 'orcid#auth_code_request'
   get '/orcid_auth_code_callback' => 'orcid#auth_code_callback'
+
+  get '/ping' => 'ping#verify'
 end
