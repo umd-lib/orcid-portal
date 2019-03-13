@@ -32,5 +32,5 @@ ORCID_AUTH_CODE_URL=
 ORCID_AUTHORIZE_ACCESS_URL=
 
 # Application URL sent to ORCID for receiving the authorization code callback
-# Example: http://localhost:3000/orcid_auth_code
+# Example: http://localhost:3000/orcid_auth_code_callback
 AUTH_CODE_CALLBACK_URL=
