@@ -43,8 +43,8 @@ class OrcidController < ApplicationController
 
     if post_response.code == '200'
       # Successful response
-      response_scheme = post_response.header.uri.scheme;
-      response_host = post_response.header.uri.host;
+      response_scheme = post_response.header.uri.scheme
+      response_host = post_response.header.uri.host
       @orcid_identifier = "#{response_scheme}://#{response_host}/#{response_hash['orcid']}"
 
       # Make sure record doesn't already exist
@@ -56,7 +56,7 @@ class OrcidController < ApplicationController
           "Existing ORCID id: #{existing_record.orcid_id}\\n" \
           "ORCID id from request: #{@orcid_identifier}\\n"
 
-          render_error_page(error_message: @error_message, error_description: @error_description)
+        render_error_page(error_message: @error_message, error_description: @error_description)
       else
         create_record(cas_uid, @orcid_identifier)
         @orcid_name = response_hash['name']
