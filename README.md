@@ -95,7 +95,7 @@ not require authentication.
 ### ORCID setup
 
 For local development, the application can be configured to use the ORCID
-"sandbox" server (https://sandbox.orcid.org/).
+"sandbox" server [https://sandbox.orcid.org/][3].
 
 See the "ORCID Sandbox IDs" of the "Identities" document on the SSDR Team
 drive for information about existing ORCID accounts.
@@ -113,7 +113,7 @@ In order to be use the ORCID sandbox server:
    http://localhost:3000
    ```
 
-   This will allow any URL starting with "http://localhost:3000" to be used
+   This will allow any URL starting with "`http://localhost:3000`" to be used
    as a callback URL.
 
 3) After filling out the form, a "Client ID" and "Client Secret" will be
@@ -129,8 +129,10 @@ by default) can be used instead. Simply set the "CAS_UID_ATTRIBUTE" in the
 
 The "firstName" and "lastName" attributes are also not available, but their
 absence should not cause any errors, other than the user's name not being
-displayed.
+displayed on the "Previously Captured" page (a hard-coded default of
+"John Smith" is displayed instead).
 
 ----
 [1]: https://members.orcid.org/api/tutorial/get-orcid-id
 [2]: https://confluence.umd.edu/display/LIB/Create+Environment+Banners
+[3]: https://sandbox.orcid.org/
