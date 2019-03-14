@@ -56,6 +56,12 @@ COPY --chown=app:app docker_config/orcid-portal/rails_start.sh /home/app/webapp
 ENV RAILS_RELATIVE_URL_ROOT=
 ENV SCRIPT_NAME=
 
+# The following SECRET_KEY_BASE and ENV_PROD_DATABASE_ADAPTER
+# variables are used so that the "assets:precompile" command
+# will run run without throwing an error. They have no effect
+# on the application when it is actually run.
+ENV SECRET_KEY_BASE=1
+ENV PROD_DATABASE_ADAPTER=postgresql
 RUN cd /home/app/webapp && \
     bundle exec rails assets:precompile && \
     cd ..

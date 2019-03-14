@@ -25,7 +25,6 @@ module OrcidPortal
     if ((Rails.const_defined? 'Server') && config.rack_cas.server_url.to_s.strip.empty?)
       puts("ERROR: CAS_SERVER_URL environment variable is not configured.")
       exit 1
-
     end
 
     config.rack_cas.session_store = RackCAS::ActiveRecordStore
