@@ -71,6 +71,10 @@ group :test do
   gem 'rubocop', '~> 0.65.0', require: false
 
   gem 'rails-controller-testing'
+
+  gem 'simplecov', '~> 0.15.1', require: false
+  gem 'simplecov-rcov', '~> 0.2.3', require: false
+  gem 'minitest-reporters', '~> 1.1.19'
 end
 
 group :production do

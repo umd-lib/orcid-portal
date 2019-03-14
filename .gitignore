@@ -32,3 +32,9 @@
 
 # Ignore .env file
 .env
+
+# Ignore minitest-ci reports
+test/reports
+
+# Ignore coverage report
+coverage
