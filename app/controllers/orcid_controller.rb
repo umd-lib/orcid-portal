@@ -20,8 +20,17 @@ class OrcidController < ApplicationController
   end
 
   # Called by ORCID with an authorization code
-  def auth_code_callback # rubocop:disable Metrics/MethodLength:
+  def auth_code_callback # rubocop:disable Metrics/MethodLength
+    # User may deny access, which comes back from ORCID in an "error" query
+    # parameter
+    error = params[:error]
+    if error.present? && error == 'access_denied'
+      render 'user_denied_access'
+      return
+    end
+
     token = params[:code]
+
     uri = URI(ENV['ORCID_AUTH_CODE_URL'])
 
     form_params = {
