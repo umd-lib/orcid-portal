@@ -20,10 +20,12 @@ module OrcidPortal
     config.rack_cas.server_url = ENV['CAS_SERVER_URL']
 
     # Ensure CAS_SERVER_URL is defined, as otherwise CAS authentication will
-    # no occur.
-    if (config.rack_cas.server_url.to_s.strip.empty?)
+    # not occur. Skip when not running as a server so assets:precompile can
+    # be performed.
+    if ((Rails.const_defined? 'Server') && config.rack_cas.server_url.to_s.strip.empty?)
       puts("ERROR: CAS_SERVER_URL environment variable is not configured.")
       exit 1
+
     end
 
     config.rack_cas.session_store = RackCAS::ActiveRecordStore
