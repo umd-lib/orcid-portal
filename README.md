@@ -90,6 +90,16 @@ values (which are case-insensitive):
 The application can be monitored using the "/ping" URL path. This path does
 not require authentication.
 
+## Docker Image
+
+This application provides Dockerfile for generating a Docker image for use
+in production. The Dockerfile provides a sample build command.
+
+The "docker_config" directory contains files used by the Dockerfile.
+
+In order to generate "clean" Docker images, the Docker images should be built
+from a fresh clone of the GitHub repository.
+
 ## Development Setup
 
 ### ORCID setup
