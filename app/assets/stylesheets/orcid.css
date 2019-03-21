@@ -20,11 +20,28 @@ main {
     text-decoration: none;
 }
 
-p, a, l a, div a, .app-title {
+p a, l a, div a, .app-title {
     font-weight: 800;
 }
 .margin-bottom-10 {
 	margin-bottom: 10px;
+}
+.terms {
+	border: 1px solid #ccc;
+	padding: 10px;
+	margin: 15px 0;
+}
+.custom-control-label::before,
+.custom-control-label::after {
+	width: 1.25rem;
+	height: 1.25rem;
+	top: 0.1rem !important;
+    left: -2rem !important;
+	right: 2rem !important;
+}
+.custom-control-label {
+    margin-left: 0.5rem !important;
+    font-size: 1rem !important;
 }
 .panel-footer {
     color: #fff;
@@ -63,9 +80,13 @@ p, a, l a, div a, .app-title {
 /* end of sticky footer*/
 
 @media (max-width: 992px){
-.app-title {
-    font-size: 28px;
-}
+  .app-title {
+      font-size: 28px;
+  }
+	.terms {
+		max-height: 400px;
+		overflow-y: scroll;
+	}
 }
 
 @media (max-width: 768px){

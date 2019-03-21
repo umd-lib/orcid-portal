@@ -8,17 +8,55 @@
   veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
   ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
   consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-  Neque porro quisquam est/
+  Neque porro quisquam est.
 </p>
 
-<p>
-  If you agree to these terms of service, select the "Agree" button to proceed.
-  Once you hit agree you will be sent to ORCID to login and grant permission
-  to send your ORCID ID back to this application.
-</p>
+<div class="terms">
+  <p>
+    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+    doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+    veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+    ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+    consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque
+    porro quisquam est.
+  </p>
 
-<form action="/orcid_auth_code_request">
-  <div style="text-align: center">
-   <button type="submit">Agree</button>
-  </div>
+  <p>
+    Qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed
+    quia non numquam eius modi tempora incidunt ut labore et dolore magnam
+    aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum
+    exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea
+    commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea
+    voluptate velit esse quam nihil molestiae consequatur, vel illum qui
+    dolorem eum fugiat quo voluptas nulla pariatur
+  </p>
+
+  <p>
+    Beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
+    sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos
+    qui ratione voluptatem sequi nesciunt. Neque porro quisquam est. quis
+    nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid
+    ex ea commodi consequatur? Quis autem vel eum iure
+  </p>
+
+  <p>
+    Beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
+    sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos
+    qui ratione voluptatem sequi nesciunt. Neque porro quisquam est. quis
+    nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid
+    ex ea commodi consequatur? Quis autem vel eum iure.
+    I have read and I accept the Terms and Conditions
+  </p>
+</div>
+
+<form id="terms" action="/orcid_auth_code_request">
+  <fieldset>
+    <div class="form-control-lg custom-checkbox text-center">
+    <input type="checkbox" class="custom-control-input" required="required" id="agree">
+    <label class="custom-control-label" for="agree"> I have read and I accept the Terms and Conditions</label>
+    </div>
+    <div class="text-center">
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+  </fieldset>
 </form>
