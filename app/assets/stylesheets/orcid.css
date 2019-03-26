@@ -83,10 +83,6 @@ p a, l a, div a, .app-title {
   .app-title {
       font-size: 28px;
   }
-	.terms {
-		max-height: 400px;
-		overflow-y: scroll;
-	}
 }
 
 @media (max-width: 768px){
