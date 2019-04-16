@@ -1,4 +1,4 @@
-# orcid-portal
+# orcid-umd
 
 Rails application for associating ORCID identifiers to university members.
 

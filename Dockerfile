@@ -1,8 +1,8 @@
-# Dockerfile for the generating orcid-portal Rails application Docker image
+# Dockerfile for the generating orcid-umd Rails application Docker image
 #
 # To build:
 #
-# docker build -t docker.lib.umd.edu/orcid-portal:<VERSION> -f Dockerfile .
+# docker build -t docker.lib.umd.edu/orcid-umd:<VERSION> -f Dockerfile .
 #
 # where <VERSION> is the Docker image version to create.
 
@@ -49,7 +49,7 @@ RUN cd /home/app/webapp && \
 COPY  --chown=app:app . /home/app/webapp/
 
 # Copy Rails application start script
-COPY --chown=app:app docker_config/orcid-portal/rails_start.sh /home/app/webapp
+COPY --chown=app:app docker_config/orcid-umd/rails_start.sh /home/app/webapp
 
 # Leave RAILS_RELATIVE_URL_ROOT and SCRIPT_NAME blank, if application
 # is at the host root
