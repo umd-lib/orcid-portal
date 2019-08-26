@@ -8,7 +8,10 @@
 </h2>
 
 <p>
-  You previously registered ORCID ID <a href="<%= @orcid_id %>" target="_blank"><%= @orcid_id %></a>
+  You previously registered ORCID ID
+  <a href="<%= @orcid_id %>" target="_blank">
+    <img src="/ORCID-iD_icon-16x16.png"> <%= @orcid_id %>
+  </a>
   on  <%= @registration_date %>.
   <br/>
 	See <a href="<%= orcid_at_umd_link %>" target="_blank"> ORCID@UMD </a> for more information.</p>
