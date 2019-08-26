@@ -21,6 +21,12 @@ RUN apt-get update && \
     apt-get install -y nodejs && \
     apt-get clean
 
+# Workaround until https://login.umd.edu gets a better SSL certificate
+# This is intended to fix an "OpenSSL::SSL::SSLError (SSL_connect returned=1 errno=0 state=error: dh key too small)"
+# error when connecting to https://login.umd.edu
+RUN sed '/CipherString = DEFAULT@SECLEVEL=2/d' /etc/ssl/openssl.cnf > /etc/ssl/openssl.cnf.fixed && \
+    mv /etc/ssl/openssl.cnf.fixed /etc/ssl/openssl.cnf
+
 # Create a user for the web app.
 RUN addgroup --gid 9999 app && \
     adduser --uid 9999 --gid 9999 --disabled-password --gecos "Application" app && \
