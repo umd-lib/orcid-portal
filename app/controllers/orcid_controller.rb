@@ -67,7 +67,7 @@ class OrcidController < ApplicationController
 
         render_error_page(error_message: @error_message, error_description: @error_description)
       else
-        create_record(cas_uid, @orcid_identifier)
+        create_record(cas_uid, @orcid_identifier, response_hash)
         @orcid_name = response_hash['name']
         @orcid_record = OrcidRecord.find_by(uid: cas_uid)
         render 'auth_code_callback'
@@ -84,11 +84,22 @@ class OrcidController < ApplicationController
   private
 
     # Adds new OrcidRecord to the database
-    def create_record(cas_uid, orcid_identifier)
+    def create_record(cas_uid, orcid_identifier, response_hash) # rubocop:disable Metrics/MethodLength
+      access_token = response_hash['access_token']
+      expires_in = response_hash['expires_in']
+      refresh_token = response_hash['refresh_token']
+      token_type = response_hash['token_type']
+      scope = response_hash['scope']
+
       OrcidRecord.create(
         uid: cas_uid,
         orcid_id: orcid_identifier,
-        registered_at: Time.now.utc
+        registered_at: Time.now.utc,
+        access_token: access_token,
+        expires_in: expires_in,
+        refresh_token: refresh_token,
+        token_type: token_type,
+        scope: scope
       )
     end
 
