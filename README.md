@@ -92,13 +92,21 @@ not require authentication.
 
 ## Docker Image
 
-This application provides Dockerfile for generating a Docker image for use
+This application provides a "Dockerfile" for generating a Docker image for use
 in production. The Dockerfile provides a sample build command.
 
 The "docker_config" directory contains files used by the Dockerfile.
 
 In order to generate "clean" Docker images, the Docker images should be built
 from a fresh clone of the GitHub repository.
+
+## Docker.ci and Jenkinsfile
+
+The "Dockerfile.ci" file is used to encapsulate the environment needed by the
+continuous integration (ci) server for building and testing the application.
+
+The "Jenkinsfile" provides the Jenkins pipeline steps for building and
+testing the application.
 
 ## Development Setup
 
