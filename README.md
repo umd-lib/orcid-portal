@@ -2,6 +2,8 @@
 
 Rails application for associating ORCID identifiers to university members.
 
+*This application is no longer being maintained and will be archived.*
+
 ## Introduction
 
 This application enables a UMD student/staff/faculty member to associate
